@@ -28,7 +28,6 @@ public class Turtle {
     public void render(LSystem lsys, PApplet p, SubPlot plt) {
         p.stroke(0);
         float[] lenPix = plt.getVectorCoord(len, len);
-
         for (int i = 0; i < lsys.getSequence().length(); i++) {
             char c = lsys.getSequence().charAt(i);
             if (c == 'F' || c == 'G') {

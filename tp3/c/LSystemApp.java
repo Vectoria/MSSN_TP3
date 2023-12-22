@@ -17,19 +17,20 @@ public class LSystemApp implements IProcessingApp {
     private SubPlot plt;
     private Turtle turtle;
 
-
     @Override
     public void setup(PApplet p) {
         plt = new SubPlot(window, viewport, p.width, p.height);
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Choose a ruleset. Type 0 for the Binary Tree ruleset with an angle of 22.5, " +
-                "1 for the Binary Tree ruleset with an angle of 120, 2 for the Koch Curve ruleset, or " +
+                "1 for the Binary Tree ruleset with an angle of 120, \n2 for the Koch Curve ruleset, or " +
                 "3 for the Sierpinski Triangle ruleset.");
         int chosenRuleset = keyboard.nextInt();
         while (chosenRuleset != 0 && chosenRuleset != 1 && chosenRuleset != 2 && chosenRuleset != 3) {
             System.out.println("Please, insert a valid ruleset (0, 1, 2, or 3):");
             chosenRuleset = keyboard.nextInt();
         }
+        System.out.println("If you need to zoom in, use the '+' key, and if you need to zoom out, use the '-' " +
+                "key on your keyboard.");
         Rule[] rules;
         switch (chosenRuleset){
             case 0:
@@ -77,8 +78,15 @@ public class LSystemApp implements IProcessingApp {
     }
     @Override
     public void keyPressed(PApplet p) {
-        if (p.key == '+') {
+        if (p.key == '-') {
             escala = escala + 0.5f;
+            if (escala == 0) escala = 0.5f;
+            this.window = new double[] { -15 * escala, 15 * escala, 0, 15 * escala };
+            this.plt = new SubPlot(window, viewport, p.width, p.height);
+        }
+        if (p.key == '+') {
+            escala = escala - 0.5f;
+            if (escala == 0) escala = 0.5f;
             this.window = new double[] { -15 * escala, 15 * escala, 0, 15 * escala };
             this.plt = new SubPlot(window, viewport, p.width, p.height);
         }
