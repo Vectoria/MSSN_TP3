@@ -1,6 +1,8 @@
 package tp3.processing;
 
 import processing.core.PApplet;
+import tp3.c.ChaosGame;
+import tp3.c.*;
 import tp3.d.*;
 
 public class ProcessingSetup extends PApplet {
@@ -27,7 +29,6 @@ public class ProcessingSetup extends PApplet {
     public void keyPressed() {
         app.keyPressed(this);
     }
-
     @Override
     public void mousePressed() {
         app.mousePressed(this);
@@ -40,7 +41,8 @@ public class ProcessingSetup extends PApplet {
     }
 
     public static void main(String[] args) {
-        app =  new MandelbrotApp();
+        //app =  new MandelbrotApp();
+        app =  new ChaosGameApp();
         PApplet.main(ProcessingSetup.class);
     }
 }
