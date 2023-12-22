@@ -59,6 +59,8 @@ public class MandelbrotApp implements IProcessingApp {
 
     @Override
     public void keyPressed(PApplet p) {
-
+        if (p.key == '-'){
+            plt=  new SubPlot(window, viewport, p.width, p.height);
+        }
     }
 }

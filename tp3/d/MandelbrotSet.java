@@ -17,7 +17,7 @@ public class MandelbrotSet {
     }
 
     public void display(PApplet p, SubPlot plt) {
-        int tt= p.millis();
+        int tt = p.millis();
         p.loadPixels();
         for (int xx = x0; xx < x0 + dimx; xx++) {
             for (int yy = y0; yy < y0 + dimy; yy++) {
@@ -28,13 +28,14 @@ public class MandelbrotSet {
                 for (i = 0; i < niter; i++) {
                     x.mult(x).add(c);
                     if (x.norm() > 2) {
-                     //   p.pixels[yy*p.width+xx] = p.color(0,255,189);
+                        //   p.pixels[yy*p.width+xx] = p.color(0,255,189);
                         break;
                     }
                 }
-                p.pixels[yy*p.width+xx] = (i==niter) ? p.color(0) : p.color((i %16)*16,i,i%16);
-               // p.stroke(color);
-               // p.point(xx, yy);
+                p.pixels[yy * p.width + xx] = (i == niter) ? p.color(0) : p.color((i % 16) * 16, i, i % 16);
+                /* int color=(i==niter) ? p.color(0) : p.color((i %16)*16,i,i%16);
+                p.stroke(color);
+                p.point(xx, yy);*/
 
             }
         }
