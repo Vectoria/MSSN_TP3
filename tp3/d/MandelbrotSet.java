@@ -28,11 +28,10 @@ public class MandelbrotSet {
                 for (i = 0; i < niter; i++) {
                     x.mult(x).add(c);
                     if (x.norm() > 2) {
-                        //   p.pixels[yy*p.width+xx] = p.color(0,255,189);
                         break;
                     }
                 }
-                p.pixels[yy * p.width + xx] = (i == niter) ? p.color(0) : p.color((i % 16) * 16, i, i % 16);
+                p.pixels[yy * p.width + xx] = (i == niter) ? p.color(0) : p.color((i % 14) * 16+30, i, i % 16);
                 /* int color=(i==niter) ? p.color(0) : p.color((i %16)*16,i,i%16);
                 p.stroke(color);
                 p.point(xx, yy);*/
