@@ -1,7 +1,6 @@
 package tp3.b;
 
 import processing.core.PApplet;
-import processing.core.PVector;
 import tp3.processing.IProcessingApp;
 
 import java.util.Scanner;
@@ -20,16 +19,11 @@ public class ChaosGameApp implements IProcessingApp {
         cg = new ChaosGame();
         cg.drawInitialRandomPoint(p);
         cg.initShape(p, chosenVerticeNum);
+        cg.display(p);
     }
     @Override
     public void draw(PApplet p, float dt) {
-        for(int i = 0; i != 1000; ++i) {
-            int r = (int) p.random(cg.initialPoints.size());
-            float x = PApplet.lerp(cg.currentPoint.x, cg.initialPoints.get(r).x, 0.5f);
-            float y = PApplet.lerp(cg.currentPoint.y, cg.initialPoints.get(r).y, 0.5f);
-            p.point(x, y);
-            cg.currentPoint = new PVector(x, y);
-        }
+        cg.display(p);
     }
     @Override
     public void mousePressed(PApplet p) {
