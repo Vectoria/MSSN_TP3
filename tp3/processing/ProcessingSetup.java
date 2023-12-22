@@ -10,7 +10,7 @@ public class ProcessingSetup extends PApplet {
     private int lastUpdate;
     @Override
     public void settings() {
-        size(1600, 800);
+        size(900, 900);
     }
     @Override
     public void setup() {
@@ -40,10 +40,11 @@ public class ProcessingSetup extends PApplet {
         app.mouseDragged(this);
     }
 
+    // descomentar apenas a app que se vai dar run
     public static void main(String[] args) {
         //app =  new MandelbrotApp();
         //app =  new ChaosGameApp();
-        app = new LSystemApp();
+        //app = new LSystemApp();
         PApplet.main(ProcessingSetup.class);
     }
 }
