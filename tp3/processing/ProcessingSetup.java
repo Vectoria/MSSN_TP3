@@ -1,14 +1,16 @@
 package tp3.processing;
 
 import processing.core.PApplet;
-import tp3.d.*;
+import tp3.b.ChaosGameApp;
+import tp3.c.LSystemApp;
+import tp3.d.MandelbrotApp;
 
 public class ProcessingSetup extends PApplet {
     public static IProcessingApp app;
     private int lastUpdate;
     @Override
     public void settings() {
-        size(800, 600);
+        size(1600, 800);
     }
     @Override
     public void setup() {
@@ -27,7 +29,6 @@ public class ProcessingSetup extends PApplet {
     public void keyPressed() {
         app.keyPressed(this);
     }
-
     @Override
     public void mousePressed() {
         app.mousePressed(this);
@@ -40,7 +41,9 @@ public class ProcessingSetup extends PApplet {
     }
 
     public static void main(String[] args) {
-        app =  new MandelbrotApp();
+        //app =  new MandelbrotApp();
+        //app =  new ChaosGameApp();
+        app = new LSystemApp();
         PApplet.main(ProcessingSetup.class);
     }
 }
