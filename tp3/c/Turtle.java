@@ -32,19 +32,8 @@ public class Turtle {
         for (int i = 0; i < lsys.getSequence().length(); i++) {
             char c = lsys.getSequence().charAt(i);
             if (c == 'F' || c == 'G') {
-
                 p.line(0, 0, lenPix[0], 0);
                 p.translate(lenPix[0], 0);
-				/*
-				 if (lsys.getSequence().charAt(i) == 'F' && Math.random() < 0.3 && LSystemApp.getHasDoneIt()) {
-					p.color(255,0,0);
-					p.circle(0, 0, 7);
-
-				}if (lsys.getSequence().charAt(i) == 'F' && Math.random() < 0.6 && Math.random() > 0.3 && LSystemApp.getHasDoneIt()) {
-					p.color(255,0,0);
-					p.circle(0, 0, 7);
-				}
-				*/
             }
             else if (c == 'f')
                 p.translate(lenPix[0], 0);

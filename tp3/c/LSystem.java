@@ -21,7 +21,6 @@ public class LSystem {
     }
 
     public void nextGeneration() {
-
         generation++;
         String nextgen = "";
         for(int i=0; i<sequence.length(); i++) {
