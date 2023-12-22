@@ -60,6 +60,14 @@ public class SubPlot {
         return box;
     }
 
+    public float[] getVectorCoord(double dx, double dy) {
+        float[] v = new float[2];
+        v[0] = (float)(dx*mx);
+        v[1] = (float)(-dy*my);
+
+        return v;
+    }
+
     public float[] getBox(double[] b){
         return getBox(b[0],b[1],b[2],b[3]);
     }

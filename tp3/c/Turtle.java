@@ -1,0 +1,61 @@
+package tp3.c;
+
+import processing.core.PApplet;
+import processing.core.PVector;
+import tp3.processing.SubPlot;
+
+public class Turtle {
+    private float len;
+    private float angle;
+    public Turtle(float len, float angle) {
+        this.len = len;
+        this.angle = angle;
+    }
+    public void setPose(PVector position, float orientation, PApplet p, SubPlot plt) {
+        float[] pp = plt.getPixelCoord(position.x, position.y);
+        p.translate(pp[0], pp[1]);
+        p.rotate(-orientation);
+    }
+    public void scaling(float s) {
+        len *= s;
+    }
+    public void setLength(float length) {
+        len = length;
+    }
+    public float getLength() {
+        return len;
+    }
+    public void render(LSystem lsys, PApplet p, SubPlot plt) {
+        p.stroke(0);
+        float[] lenPix = plt.getVectorCoord(len, len);
+
+        for (int i = 0; i < lsys.getSequence().length(); i++) {
+            char c = lsys.getSequence().charAt(i);
+            if (c == 'F' || c == 'G') {
+
+                p.line(0, 0, lenPix[0], 0);
+                p.translate(lenPix[0], 0);
+				/*
+				 if (lsys.getSequence().charAt(i) == 'F' && Math.random() < 0.3 && LSystemApp.getHasDoneIt()) {
+					p.color(255,0,0);
+					p.circle(0, 0, 7);
+
+				}if (lsys.getSequence().charAt(i) == 'F' && Math.random() < 0.6 && Math.random() > 0.3 && LSystemApp.getHasDoneIt()) {
+					p.color(255,0,0);
+					p.circle(0, 0, 7);
+				}
+				*/
+            }
+            else if (c == 'f')
+                p.translate(lenPix[0], 0);
+            else if (c == '+')
+                p.rotate(angle);
+            else if (c == '-')
+                p.rotate(-angle);
+            else if (c == '[')
+                p.pushMatrix();
+            else if (c == ']')
+                p.popMatrix();
+        }
+    }
+}
