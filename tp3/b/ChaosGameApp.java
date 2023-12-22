@@ -1,4 +1,4 @@
-package tp3.c;
+package tp3.b;
 
 import processing.core.PApplet;
 import processing.core.PVector;

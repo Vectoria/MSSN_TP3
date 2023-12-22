@@ -1,9 +1,7 @@
 package tp3.processing;
 
 import processing.core.PApplet;
-import tp3.c.ChaosGame;
-import tp3.c.*;
-import tp3.d.*;
+import tp3.b.ChaosGameApp;
 
 public class ProcessingSetup extends PApplet {
     public static IProcessingApp app;
